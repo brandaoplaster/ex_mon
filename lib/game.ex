@@ -9,4 +9,6 @@ defmodule ExMon.Game do
   def infor do
     Agent.get(__MODULE__, & &1)
   end
+
+  def player, do: Map.get(info(), :player)
 end
