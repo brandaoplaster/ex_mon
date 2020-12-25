@@ -28,5 +28,7 @@ defmodule ExMon do
       :move_heal -> "heal"
       move -> Actions.attack(move)
     end
+
+    Status.print_round_message(Game.info())
   end
 end
