@@ -2,19 +2,19 @@ defmodule ExMon.Game.Status do
 
   def print_round_message(%{status: :started} = info) do
     IO.puts("\n======= The game is started =======\n")
-    IO.inspect(info())
+    IO.inspect(info)
     IO.puts("---------------------")
   end
 
   def print_round_message(%{status: :continue, turn: player} = info) do
     IO.puts("\n======= Its #{player} turn. =======\n")
-    IO.inspect(info())
+    IO.inspect(info)
     IO.puts("---------------------")
   end
 
   def print_round_message(%{status: :game_over} = info) do
     IO.puts("\n======= The game is over =======\n")
-    IO.inspect(info())
+    IO.inspect(info)
     IO.puts("---------------------")
   end
 
@@ -28,5 +28,9 @@ defmodule ExMon.Game.Status do
 
   def print_move_message(:player, :attake, damage) do
     IO.puts("\n======= The computer attacked the Player  dealing #{damage} damage =======\n")
+  end
+
+  def print_move_message(player, :heal, life) do
+    IO.puts("\n======= The #{player} healled itself to #{life} life points =======\n")
   end
 end
