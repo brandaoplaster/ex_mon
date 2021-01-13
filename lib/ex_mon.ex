@@ -2,8 +2,8 @@ defmodule ExMon do
   alias ExMon.{Game, Player}
   alias ExMon.Game.{Actions, Status}
 
-  @computer_moves = [:move_avg, :move_rnd, :move_heal]
-  @computer_name "Robotinik"
+  @computer_moves [:move_avg, :move_rnd, :move_heal]
+  @computer_name "Robotnik"
 
   def create_player(name, move_rnd, move_avg, move_heal) do
     Player.build(name, move_rnd, move_avg, move_heal)
@@ -23,9 +23,9 @@ defmodule ExMon do
     |> handle_status(move)
   end
 
-  defp handle_status(:game_over, _move), do: Stauts.print_round_message(Game.info()
+  defp handle_status(:game_over, _), do: Status.print_round_message(Game.info())
 
-  defp handle_status(_other, move) do
+  defp handle_status(_, move) do
     move
     |> Actions.fetch_move()
     |> do_move()
