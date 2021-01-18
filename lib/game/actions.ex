@@ -1,4 +1,4 @@
-defmodule ExMod.Game.Actions do
+defmodule ExMon.Game.Actions do
   alias ExMon.Game
   alias ExMon.Game.Actions.{Attack, Heal}
   
@@ -15,7 +15,7 @@ defmodule ExMod.Game.Actions do
     end
   end
 
-  def heal() do
+  def heal do
     case Game.turn() do
       :player -> Heal.heal_life(:player)
       :computer -> Heal.heal_life(:computer)
@@ -23,7 +23,7 @@ defmodule ExMod.Game.Actions do
   end
 
   defp find_move(moves, move) do
-    Enum.find_value(moves, {:error, move}, fn {key, value} -> 
+    Enum.find_value(moves, {:error, move}, fn {key, value} ->
       if value == move, do: {:ok, key}
     end)
   end
