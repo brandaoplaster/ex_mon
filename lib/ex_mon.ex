@@ -14,7 +14,7 @@ defmodule ExMon do
     |> create_player(:puch, :kick, :heal)
     |> Game.start(player)
 
-    Status.print_round_message()
+    Status.print_round_message(Game.info())
   end
 
   def make_move(move) do
